@@ -12,3 +12,10 @@
 # Answer scoring - with localStorage
 # Use my Go: PostgreSQL database and API created for JS q/a's
 # A page to create flashcards using categorizes, with those cards always displayed, with the option to hide or 5-10 created flashcards plus api 10 populate when click button? 
+
+## api token for QuizAPI.io, oqqFU5lnrqOeNJIXJgwJOd8aVjpmKLXaX4wN8xrh
+
+## quiz api is a simple HTTP REST API for technical quizzes
+
+## https://www.w3schools.com/howto/howto_css_flip_box.asp
+## try flip-box to flip card vertically or horizontally
