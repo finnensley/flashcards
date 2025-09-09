@@ -1,0 +1,21 @@
+// $myColor: red;
+
+// h1 {
+//   color: $myColor;
+// }
+
+@use 'sass:color';
+$myColor: red;
+
+h1 {
+  color: $myColor;
+}
+
+h2 {
+  color: color.adjust($myColor, $lightness: -20%);
+}
+
+h3 {
+  color: color.adjust($myColor, $lightness: 20%);
+}
+

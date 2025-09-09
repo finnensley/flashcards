@@ -1,0 +1,20 @@
+.mybutton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary {
+  composes: button;
+  background-color: #007bff;
+  color: white;
+}
+
+.secondary {
+  composes: button;
+  background-color: #6c757d;
+  color: white;
+}
+
+/* not sure why composes is not recognized, may need to config */

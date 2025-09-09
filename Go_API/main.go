@@ -1,0 +1,95 @@
+package main
+
+// 1. start in terminal: go mod init example/Go_API
+//creates a go.mod file to keep the dependencies
+// would use the route or where a user could install it instead of "example"
+// 2.Download the dependency that is needed, which is the  gin framework: go get github.com/gin-gonic/gin
+// 3. Install the PostgreSQL driver for Go: go get github.com/lib/pq
+// 4. Add database/sql and "github.com/lib/pq" and "log" to import
+// 5. split terminal go run main.go; curl http://localhost:8080/questions --request "GET", curl http://localhost:8080/answers --request "GET"
+// If issues due to port being used: lsof -i :8080, kill -9 <PID>
+// 6. If need to check database, psql -U finnensley -d postgres; /dt shows tables, SELECT * FROM flashcard_questions; SELECT * FROM flashcard_answer_options;
+
+import (
+	"database/sql"
+	"log"
+	"net/http" // built into go
+
+	"github.com/gin-gonic/gin"
+	_ "github.com/lib/pq"
+)
+
+type Question struct {
+	QuestionID 		int		`json:"question_id"`
+	QuestionText	string	`json:"question_text"`
+	Category		string	`json:"category"`
+	Difficulty		string	`json:"difficulty"`
+	CreatedAt		string	`json:"created_at"`
+}
+
+type AnswerOption struct {
+	OptionID		int		`json:"option_id"`
+	QuestionID		int		`json:"question_id"`
+	OptionText		string	`json:"option_text"`
+	IsCorrect		bool	`json:"is_correct"`
+}
+
+var db *sql.DB
+
+func getQuestions(c *gin.Context) {
+	rows, err := db.Query("SELECT question_id, question_text, category, difficulty, created_at FROM flashcard_questions")
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	defer rows.Close()
+
+	var questions []Question
+	for rows.Next() {
+		var q Question
+		if err := rows.Scan(&q.QuestionID, &q.QuestionText, &q.Category, &q.Difficulty, &q.CreatedAt); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		questions = append(questions, q)
+	}
+	c.IndentedJSON(http.StatusOK, questions)
+}
+
+func getAnswers(c *gin.Context) {
+	rows, err := db.Query("SELECT option_id, question_id, option_text, is_correct FROM flashcard_answer_options")
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	defer rows.Close()
+
+	var answers []AnswerOption
+	for rows.Next() {
+		var a AnswerOption
+		if err := rows.Scan(&a.OptionID, &a.QuestionID, &a.OptionText, &a.IsCorrect); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		answers = append(answers, a)
+	}
+	c.IndentedJSON(http.StatusOK, answers)
+}
+
+func main() {
+	var err error
+	connStr := "user=finnensley password=Finnigan2020! dbname=postgres sslmode=disable"
+	log.Println("Connecting with:", connStr)
+	db, err = sql.Open("postgres", connStr)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	router := gin.Default()
+	router.GET("/questions", getQuestions)
+	router.GET("/answers", getAnswers)
+	router.Run("localhost:8080")
+	
+
+}

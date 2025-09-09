@@ -1,0 +1,5 @@
+option_id,question_id,option_text,is_correct
+1,1,Javascript,TRUE
+2,1,Python,FALSE
+3,1,Java,FALSE
+4,1,C++,FALSE

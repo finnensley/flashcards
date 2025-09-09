@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        #createCard {
+            border: solid black;
+            color: white;
+            width: fit-content;
+            height: auto;
+            background-color:green;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            /* animation-name: fadeIn;
+            animation-duration: 3s; */
+            /* animation-name: myMove;
+            animation-duration: 3s; */
+            
+        }
+
+        @keyframes spin {
+            from { transform: (0deg)`;}
+            to { transform: scale(360deg);}
+        }
+
+        @keyframes myMove {
+            from {top: 0px;}
+            to {top: 200px;}
+        }
+
+
+        #createCard:hover {
+            /* animation-name: flip;
+            animation-duration: 2s;
+            animation-iteration-count: 1; */
+            /* transform: rotatex(180deg);
+            backface-visibility: hidden; */
+            /* transform: rotatey(20deg); */
+            animation-name: spin;
+            animation-duration: 3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to {opacity: 1;}
+        }
+
+        input {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            padding: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <header>
+        <h1>Flashcard Study Sessions</h1>
+        <button id="toggleModeBtn">Dark Mode</button>
+    </header>
+        <form id="createCard">
+        <div>
+            <h2>Create Flashcard</h2>
+        </div>
+        <div>
+        <label for="category">Select Category:</label>
+        <select id="category">
+            <option value="">Choose One:</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Javascript">Javascript</option>
+            <option value="React">React</option>
+            <option value="BigO">BigO</option>
+        </select>
+        </div>
+        <br>
+        <div>
+        <label for="questionInput">Question:</label>
+        <input type="text" id="questionInput" placeholder="Enter question or challenge:"/>
+        </div>
+        <div>
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+            <option value="">Choose One:</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+        </div>
+        <br>
+        <div>
+        <label for="type">Type</label>
+        <select id="type">
+            <option value="">Choose One:</option>
+            <option value="multiple-choice">Multiple Choice</option>
+            <option value="boolean">True or False</option>
+            <option value="text">Fill in the blank</option>
+        </select>
+        </div>
+        <br>
+        <button type="submit">Save</button>
+        <br>
+    </div>
+</form>
+<h1>3D Flip Box (Horizontal)</h1>
+<h3>Hover over the box below:</h3>
+
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <h2>Front Side</h2>
+    </div>
+    <div class="flip-box-back">
+      <h2>Back Side</h2>
+    </div>
+  </div>
+</div>
+    <div>
+        <!-- could use a dropdown in form instead -->
+        <h2>Load Session By Category</h2>
+        <button id="Linux" type="button">Linux</button>
+        <button id="HTML" type="button">HTML</button>
+        <!-- <button id="CSS" type="button">CSS</button>
+        <button id="JS" type="button">JS</button> -->
+        <button id="React" type="button">React</button>
+        <button id="DevOps" type="button">DevOps</button>
+        <button id="LeetCode" type="button">LeetCode</button>
+        <button id="Python" type="button">Python</button>
+    </div>
+    <button id="shuffleBtn">Shuffle FlashCards</button>
+    <div class="flashcards" id="flashcards-container"></div>
+    <div id="questions">
+    <p id="errorMessage"></p>
+    <h2 id="category"></h2>
+    <h2 id="difficultyLevel"></h2>
+    <p id="question"></p>
+    <div id="choices"></div>
+    <p id="correctAnswer"></p>
+    <p id="description"></p>
+    <p id="scoreJS"></p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
