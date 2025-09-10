@@ -3,6 +3,7 @@ import MyForm from "./MyForm.jsx";
 import FlashcardLoader from "./FlashcardLoader.jsx";
 import FlipboxAnimation from "./FlipboxAnimation.jsx";
 import DbCall from "./dbApiCall.jsx";
+import {motion} from "framer-motion";
 
 
 function App() {

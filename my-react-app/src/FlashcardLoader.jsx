@@ -13,12 +13,13 @@ const urls = {
 };
 
 
-  /*Add CSS, if find api; and JS*/
+  /*Add CSS, if find api*/
 
 
 function escapeHTML(str) {
   if (!str) return "";
-  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return str;
 }
 
 function FlashcardLoader() {
@@ -47,13 +48,13 @@ function FlashcardLoader() {
           answers: answerData
           .filter(a => a.question_id === q.question_id)
           .reduce((acc, a) => {
-            acc[a.option_id] = a.option_text;
+            acc[String(a.option_id)] = a.option_text;
             return acc;
           }, {}),
           correct_answers: answerData
           .filter(a => a.question_id === q.question_id)
           .reduce((acc, a) => {
-            acc[a.option_id] = a.is_correct ? "true" : "false";
+            acc[String(a.option_id)] = a.is_correct ? "true" : "false";
             return acc;
           }, {})
         }));
@@ -86,6 +87,11 @@ function FlashcardLoader() {
     setSelected((prev) => ({ ...prev, [idx]: "" })); // Resets to Choose One:
   }
 
+  // function getChars() {
+  //   const first8chars = answers[key].slice[...7,,]
+
+  // }
+ 
   return (
     <div>
       <h2>Load Session By Category</h2>
@@ -104,7 +110,7 @@ function FlashcardLoader() {
             key={currentIdx}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 1 }}
             >
             <div className="question-block" key={currentIdx}>
               <div
@@ -156,13 +162,15 @@ function FlashcardLoader() {
                 >
                   <div className="answer-center">
                     Correct Answer:{" "}
-                    {questions[currentIdx].correct_answers
-                      ? Object.keys(questions[currentIdx].correct_answers).find(
-                          (key) =>
-                            questions[currentIdx].correct_answers[key] ===
-                            "true"
-                        )
-                      : "N/A"}
+                      {(() => {
+                        const correctKey = Object.keys(questions[currentIdx].correct_answers).find(
+                          (key) => questions[currentIdx].correct_answers[key] === "true"
+                        );
+                        if (!correctKey) return "N/A";
+                        // Remove "_correct" from the key to get the answer key
+                        const answerKey = correctKey.replace("_correct", "");
+                        return questions[currentIdx].answers[answerKey] || "N/A";
+                      })()} 
                   </div>
                   <p className="flip-to-front">(Click to flip back)</p>
                 </div>
@@ -171,7 +179,12 @@ function FlashcardLoader() {
             </motion.div>
         )}
         {questions.length > 0 && currentIdx < questions.length - 1 && (
-          <button onClick={() => setCurrentIdx(currentIdx + 1)}>Next</button>
+          <motion.button
+           animate={{ opacity: 1 }}
+           whileHover={{ scale: 1.1 }}
+           onClick={() => setCurrentIdx(currentIdx + 1)}>
+            Next
+          </motion.button>
         )}
 
         {questions.length > 0 && currentIdx > 0 && (
