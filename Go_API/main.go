@@ -8,13 +8,14 @@ package main
 // 4. Add database/sql and "github.com/lib/pq" and "log" to import
 // 5. split terminal go run main.go; curl http://localhost:8080/questions --request "GET", curl http://localhost:8080/answers --request "GET"
 // If issues due to port being used: lsof -i :8080, kill -9 <PID>
-// 6. If need to check database, psql -U finnensley -d postgres; /dt shows tables, SELECT * FROM flashcard_questions; SELECT * FROM flashcard_answer_options;
+// 6. If need to check database, psql -U finnensley -d postgres; \dt shows tables, SELECT * FROM flashcard_questions; SELECT * FROM flashcard_answer_options;
 
 import (
 	"database/sql"
 	"log"
 	"net/http" // built into go
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 )
@@ -87,9 +88,17 @@ func main() {
 	defer db.Close()
 
 	router := gin.Default()
+
+	//Added CORS middleware here
+	router.Use(cors.New(cors.Config{
+		AllowOrigins: []string{"http://localhost:3000", "http://localhost:5173"},
+		AllowMethods: []string{"GET", "POST", "PUT", "DELETE"},
+		AllowHeaders: []string{"Origin", "Content-Type"},
+		AllowCredentials: true,
+	}))
+
 	router.GET("/questions", getQuestions)
 	router.GET("/answers", getAnswers)
 	router.Run("localhost:8080")
-	
 
 }

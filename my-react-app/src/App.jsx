@@ -1,8 +1,9 @@
 import "./App.css";
 import MyForm from "./MyForm.jsx";
 import FlashcardLoader from "./FlashcardLoader.jsx";
-import { motion } from "framer-motion";
 import FlipboxAnimation from "./FlipboxAnimation.jsx";
+import DbCall from "./dbApiCall.jsx";
+
 
 function App() {
     return (
@@ -16,14 +17,16 @@ function App() {
       <h3>Hover over the box below:</h3>
     <FlipboxAnimation />
        <div>
-        {/* <!-- could use a dropdown in form instead --> */}
-        
-        {/* <!-- <button id="CSS" type="button">CSS</button>
-        <button id="JS" type="button">JS</button> --> */}
         <FlashcardLoader />
+        </div>
+        <div>
+        <DbCall />
         </div>
     </div>
  );
 }
 
 export default App;
+
+
+// In terminal: npm run dev

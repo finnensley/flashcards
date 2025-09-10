@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "framer-motion": "^12.23.12",
+    "pg": "^8.16.3",
     "vite": "^7.1.4"
   }
 }
