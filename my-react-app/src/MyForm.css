@@ -1,21 +1,9 @@
-#createCard {
-  border: solid whitesmoke;
-  color: white;
-  width: fit-content;
-  height: fit-content;
-  background-color: green;
-  border-radius: 20px;
-  margin: 10px;
-  padding: 30px;
-  text-align: left;
-}
-
 .create-flashcard {
   /* background-color: rgba(75, 60, 143, 0.627); */
+  background: linear-gradient(135deg, rgba(201, 163, 174, 0.407) 60%, rgba(246, 184, 220, 0.882) 100%);
   width: 55%;
   padding: 10px;
   margin: 10px;
-  border-left: solid whitesmoke;
   border-right: solid whitesmoke;
   border-radius: 20px;
   display: flex;
@@ -24,18 +12,19 @@
   justify-content: center;
 }
 
-#createCard:hover {
-  animation-name: spin;
-  animation-duration: 3s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#createCard {
+  border-top: solid whitesmoke;
+  border-bottom: solid whitesmoke;
+  color: white;
+  width: 30rem;
+  height: 12rem;
+  background: linear-gradient(135deg, rgba(176, 196, 222, 0.407) 60%, rgba(70, 131, 180, 0.822) 100%);
+  border-radius: 20px;
+  margin: 10px;
+  padding: 30px;
+  text-align: left;
+  font-size: larger;
+  line-height: 1.5;
 }
 
 input {
@@ -45,35 +34,3 @@ input {
   width: 100%;
 }
 
-/* Not being used */
-@keyframes spin {
-  from {
-    transform: (0deg);
-  }
-  to {
-    transform: scale(360deg);
-  }
-}
-
-@keyframes myMove {
-  from {
-    top: 0px;
-  }
-  to {
-    top: 200px;
-  }
-}
-
-#createCard:hover {
-  animation-name: spin;
-  animation-duration: 3s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}

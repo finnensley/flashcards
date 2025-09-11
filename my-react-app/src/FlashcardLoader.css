@@ -1,9 +1,9 @@
 .flashcard-container {
-  background-color: rgba(75, 60, 143, 0.627);
+  background-color: rgba(75, 60, 143, 0.514);
   width: 55%;
   padding: 10px;
   margin: 10px;
-  border: solid whitesmoke;
+  border-right: solid whitesmoke;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -14,13 +14,14 @@
 .question-block {
   background-color: transparent;
   /* border: solid rgba(0, 0, 0, 0.393); */
-  border: 4px solid #f1f1f1;
+  border-top: 2px solid #f1f1f1;
+  border-bottom: 2px solid #f1f1f1;
   color: white;
   width: 600px;
   height: 300px;
   border-radius: 10px;
   margin: 16px;
-  perspective: 1500px; /*increase for deeper 3D effect*/
+  perspective: 1500px; /* increase for deeper 3D effect */
   box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
   text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
     0 0px 2px rgba(0,128,0,0.18); /* subtle green glow */
@@ -54,19 +55,22 @@
 }
 
 .question-block-front {
-  background-color: rgba(0, 128, 0, 0.73);
-  color: white;
+  /* background-color: rgba(0, 128, 0, 0.73); */
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
-  background: linear-gradient(135deg, #218838 60%, #145c2a 100%); /* add depth */
+  /* background: linear-gradient(135deg, #21883785 60%, #145c2a 100%); add depth */
+  background: linear-gradient(135deg, rgba(176, 196, 222, 0.407) 60%, rgba(70, 131, 180, 0.822) 100%);
+
 }
 
 
 .question-block-back {
-  background-color: whitesmoke;
-  color:rgba(0, 128, 0, 0.73);
+  /* background-color: whitesmoke; */
+  /* color:rgba(0, 128, 0, 0.73); */
+  color: whitesmoke;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
@@ -76,7 +80,9 @@
   position: absolute;
   width: 100%;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #fff 60%, #e6ffe6 100%);/* add depth */
+  /* background: linear-gradient(135deg, #fff 60%, #e6ffe6 100%);add depth */
+  background: linear-gradient(135deg, rgba(201, 163, 174, 0.407) 60%, rgba(246, 184, 220, 0.882) 100%);
+
 }
 
 .flip-to-front {

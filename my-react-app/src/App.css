@@ -4,6 +4,7 @@
   /* padding: 2rem; */
   text-align: center;
 }
+
 #toggleModeBtn {
   background-color: transparent;
   border-radius: 5px;
@@ -18,10 +19,9 @@
 
 .header {
   /* background-color: rgba(181, 218, 32, 0.321); */
+  background: linear-gradient(135deg, rgba(201, 163, 174, 0.407) 60%, rgba(246, 184, 220, 0.882) 100%);
   color: whitesmoke;
-  border-left: solid whitesmoke;
   border-right: solid whitesmoke;
-  background-blend-mode: color-burn;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -51,6 +51,13 @@ body {
   margin: 0;
   padding: 0;
   color: whitesmoke;
+  background-image: url("src/pexels-tirachard-kumtanom-112571-450066.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.443);
+
+
 }
 
 /* Stylings for Vite - React Page, use for reference */
