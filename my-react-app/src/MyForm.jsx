@@ -4,9 +4,6 @@ function MyForm() {
   return (
     <form id="createCard">
       <div>
-        <h2>Create Flashcard</h2>
-      </div>
-      <div>
         <label htmlFor="category">Select Category:</label>
         <select id="category">
           <option value="">Choose One:</option>

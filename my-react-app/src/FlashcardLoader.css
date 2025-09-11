@@ -1,3 +1,15 @@
+.flashcard-container {
+  background-color: rgba(75, 60, 143, 0.627);
+  width: 55%;
+  padding: 10px;
+  margin: 10px;
+  border: solid whitesmoke;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .question-block {
   background-color: transparent;
@@ -7,7 +19,7 @@
   width: 600px;
   height: 300px;
   border-radius: 10px;
-  margin: 16px 0;
+  margin: 16px;
   perspective: 1500px; /*increase for deeper 3D effect*/
   box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
   text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
@@ -53,17 +65,16 @@
 
 
 .question-block-back {
-  background-color: white;
+  background-color: whitesmoke;
   color:rgba(0, 128, 0, 0.73);
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /*space between answer and bottom text*/
+  justify-content: center; /*space between answer and bottom text */
   height: 100%;
   position: absolute;
   width: 100%;
-  /* padding: 26px; */
   box-sizing: border-box;
   background: linear-gradient(135deg, #fff 60%, #e6ffe6 100%);/* add depth */
 }
@@ -71,16 +82,24 @@
 .flip-to-front {
     font-size: 0.9em;
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 0;
     padding-bottom: 8px;
 }
 
+
 .answer-center {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     text-align: center;
-    margin: auto 0;/* vertical cetnering in flex column */
+    margin: 5px;
+    margin-bottom: 20px; 
     font-size: 1.2em;
+    justify-content: space-between;
 }
 
 /* aligns category to left and level to right, justify-content: space-between */
@@ -94,4 +113,14 @@
     left: 0;
 }
 
-
+#categoryBtns {
+  margin: 10px;
+  padding: 7px;
+  /* color: darkgreen; */
+  color: whitesmoke;
+  background: none;
+  border-radius: 10px;
+  font-size: larger;
+  cursor: pointer;
+  border: none;
+}

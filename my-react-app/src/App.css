@@ -1,120 +1,56 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: left;
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  text-align: center;
 }
-
-#createCard {
-  border: solid black;
-  color: white;
-  width: fit-content;
-  height: auto;
-  background-color: green;
+#toggleModeBtn {
+  background-color: transparent;
   border-radius: 5px;
-  margin: 20px;
-  padding: 20px;
-
-  /* animation-name: fadeIn;
-            animation-duration: 3s; */
-  /* animation-name: myMove;
-            animation-duration: 3s; */
+  border-color: whitesmoke;
+  padding: 2px;
+  font-size: large;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
+    0 0px 2px rgba(0,128,0,0.18); /* subtle green glow */
+  cursor: pointer;
 }
 
-@keyframes spin {
-  from {
-    transform: (0deg);
-  }
-  to {
-    transform: scale(360deg);
-  }
-}
-
-@keyframes myMove {
-  from {
-    top: 0px;
-  }
-  to {
-    top: 200px;
-  }
-}
-
-#createCard:hover {
-  /* animation-name: flip;
-            animation-duration: 2s;
-            animation-iteration-count: 1; */
-  /* transform: rotatex(180deg);
-            backface-visibility: hidden; */
-  /* transform: rotatey(20deg); */
-  animation-name: spin;
-  animation-duration: 3s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-input {
-  margin-bottom: 20px;
-  border-radius: 5px;
+.header {
+  /* background-color: rgba(181, 218, 32, 0.321); */
+  color: whitesmoke;
+  border-left: solid whitesmoke;
+  border-right: solid whitesmoke;
+  background-blend-mode: color-burn;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin: 10px 0 5px 0;
   padding: 5px;
-  width: 100%;
+  gap: 10px;
+  width: 55%; 
+}
+
+.container {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-
-.flip-box {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px;
-}
-
-
-.flip-box-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-
-.flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
-  cursor: grab;
-}
-
-
-.flip-box-front,
-.flip-box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-box-front {
-  background-color: #bbb;
-  color: black;
-}
-
-
-.flip-box-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
+  background-color: rgb(39, 76, 43);
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
 }
 
 /* Stylings for Vite - React Page, use for reference */

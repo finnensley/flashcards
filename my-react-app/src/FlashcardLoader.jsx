@@ -86,20 +86,16 @@ function FlashcardLoader() {
     setFlipped((prev) => ({ ...prev, [idx]: false }));
     setSelected((prev) => ({ ...prev, [idx]: "" })); // Resets to Choose One:
   }
-
-  // function getChars() {
-  //   const first8chars = answers[key].slice[...7,,]
-
-  // }
  
   return (
     <div>
-      <h2>Load Session By Category</h2>
+      <h2>Choose A Category: </h2>
+      <p>10 questions will appear 1 at a time</p>
       {/* loops through all the keys of the urls object{Linux, HTML, etc.} */}
       {/* for each key it creates a button with the category name as its label */}
       {/* onClick handler calls handleClick(cat), which fetches data for that category) */}
       {Object.keys(urls).map((cat) => (
-        <button key={cat} onClick={() => handleClick(cat)}>
+        <button id="categoryBtns" key={cat} onClick={() => handleClick(cat)}>
           {cat}
         </button>
       ))}
@@ -160,8 +156,13 @@ function FlashcardLoader() {
                   className="question-block-back"
                   onClick={() => handleFlipBack(currentIdx)}
                 >
+                  <div className="question-repeated">
+                  <h2>
+                    {/* Question {currentIdx + 1}: */} {questions[currentIdx].question_text || questions[currentIdx].question}
+                  </h2>
+                  </div>
                   <div className="answer-center">
-                    Correct Answer:{" "}
+                   {/* Correct Answer: {" "} */}
                       {(() => {
                         const correctKey = Object.keys(questions[currentIdx].correct_answers).find(
                           (key) => questions[currentIdx].correct_answers[key] === "true"

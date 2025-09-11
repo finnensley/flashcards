@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import "./App.css";
 
+//3D Flip Box (Horizontal), Hover over the box to flip
 function FlipboxAnimation() {
   return (
     <motion.div
@@ -20,5 +21,6 @@ function FlipboxAnimation() {
     </motion.div>
   );
 }
+
 
 export default FlipboxAnimation;

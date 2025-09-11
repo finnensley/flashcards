@@ -1,33 +1,29 @@
 import "./App.css";
 import MyForm from "./MyForm.jsx";
 import FlashcardLoader from "./FlashcardLoader.jsx";
-import FlipboxAnimation from "./FlipboxAnimation.jsx";
-import DbCall from "./dbApiCall.jsx";
-import {motion} from "framer-motion";
-
+import { motion } from "framer-motion";
+import "./MyForm.css";
 
 function App() {
-    return (
+  return (
     <div className="container">
-      <header>
-        <h1>Flashcard Study Sessions</h1>
-        <button id="toggleModeBtn">Dark Mode</button>
+      <header className="header">
+        <h1>DevFlashCards</h1>
+        <button id="toggleModeBtn">💡</button>
       </header>
-      <MyForm />
-      <h1>3D Flip Box (Horizontal)</h1>
-      <h3>Hover over the box below:</h3>
-    <FlipboxAnimation />
-       <div>
+      <div className="flashcard-container">
         <FlashcardLoader />
-        </div>
+      </div>
+      <div className="create-flashcard">
+        <h2>Create A Flashcard</h2>
         <div>
-        <DbCall />
+          <MyForm />
         </div>
+      </div>
     </div>
- );
+  );
 }
 
 export default App;
-
 
 // In terminal: npm run dev
