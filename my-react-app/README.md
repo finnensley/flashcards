@@ -10,8 +10,10 @@
 # A page to create flashcards using categorizes, with those cards always displayed, with the option to hide or 5-10 created flashcards plus api 10 populate when click button? 
 
 ## Challenges:
- 
-# use buttons for answer choices beneath cards, when click answer card flips to back. Shows correct answer, updates score.
+
+# Next and Previous button layouts to be justify-content: space-between. Add classNames to the buttons.
+# make the motion.button work when click new category in the middle of another category. Only works when clicking with no category pulled up. 
+# Shows correct answer, updates score.
 # fix correct a or 1 to be the correct answer 
 # check to see if it is worth it to change endpoint and update database to have questions and answers in same table. 
 
@@ -37,6 +39,8 @@
 # each card opens on its own page with back/next buttons
 
 # build backend server, Node.js Express to connect JS Postgres Database, did this but already had Go server and did not need. Still used both to check that they worked.
+
+# use buttons for answer choices beneath cards, when click answer card flips to back. 
 
 
 
