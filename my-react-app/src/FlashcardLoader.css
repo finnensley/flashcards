@@ -25,6 +25,7 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
   text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
     0 0px 2px rgba(0,128,0,0.18); /* subtle green glow */
+  
 }
 
 .question-block-inner {
@@ -59,7 +60,7 @@
   color: whitesmoke;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   /* background: linear-gradient(135deg, #21883785 60%, #145c2a 100%); add depth */
   background: linear-gradient(135deg, rgba(176, 196, 222, 0.407) 60%, rgba(70, 131, 180, 0.822) 100%);
@@ -129,4 +130,27 @@
   font-size: larger;
   cursor: pointer;
   border: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.443);
+}
+
+.next-and-prevbtns {
+  display: flex;
+  justify-content: space-around;
+}
+
+#next-button,
+#previous-button {
+  padding: 7px;
+  color: whitesmoke;
+  background: none;
+  font-size: larger;
+  cursor: pointer;
+  border: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.443);
+}
+
+.choices select {
+  max-width: 90%;
+  width: 100%;
+  box-sizing: border-box;
 }
