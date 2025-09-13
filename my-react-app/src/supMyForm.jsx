@@ -19,6 +19,10 @@ function MyForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (!user) {
+      alert("You must be signed in to add a flashcard.");
+      return;
+    }
     // Insert question
     const { data: questionData, error: qError } = await supabase
       .from("flashcard_custom_questions")
