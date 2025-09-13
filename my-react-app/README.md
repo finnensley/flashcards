@@ -11,16 +11,18 @@
 
 ## Challenges:
 
+## React app only runs if npm run dev and go server is running for JS/Custom tables, go run main.go. If hosted on vercel and db to Supabase, does that fix running it locally. Can Vercel be used as a server? 
+
+## Type will need to be entered into Go struct to work, currently sends no data to tables - is it even needed?
+
 ## if have cards up from one category, if click another category cards don't fade in just appear, they also stay on the current side you were on before, i.e. if on answer side for HTML card, click DevOp link it will show first card with answer side flipped.
 
-# Would custom created questions, stay in local storage or be updated in a database. - start with localStorage, then create a table for custom q's/a's in postgre table for JS, pull custom endpoints. --Need to set up a POST router, potentially use the same api already created to push created data to db? 
 
 # Align front of flashcard question and answer choice to the right more.
 
 # make the motion.button work when click new category in the middle of another category. Only works when clicking with no category pulled up.
 
 # Shows correct answer, updates score.
-
 
 # check to see if it is worth it to change endpoint and update database to have questions and answers in same table. 
 
@@ -52,4 +54,6 @@
 # Next and Previous button layouts to be justify-content: space-between. Add classNames to the buttons.
 
 # fix correct a or 1 to be the correct answer 
+
+# Would custom created questions, stay in local storage or be updated in a database. - start with localStorage, then create a table for custom q's/a's in postgre table for JS, pull custom endpoints. --Need to set up a POST router, potentially use the same api already created to push created data to db? 
 

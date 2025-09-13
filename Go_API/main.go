@@ -9,6 +9,7 @@ package main
 // 5. split terminal go run main.go; curl http://localhost:8080/questions --request "GET", curl http://localhost:8080/answers --request "GET"
 // If issues due to port being used: lsof -i :8080, kill -9 <PID>
 // 6. If need to check database, psql -U finnensley -d postgres; \dt shows tables, SELECT * FROM flashcard_questions; SELECT * FROM flashcard_answer_options;
+// 7. Ctrl C cancels request: takes back to postgres=#, or \q to quit
 
 import (
 	"database/sql"
