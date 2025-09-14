@@ -5,7 +5,7 @@ import { supabase } from "./supabaseClient";
 // Add value and onChange to each input/select.
 // Use the state values in your submit handler.
 
-function MyForm() {
+function MyForm({ user }) {
   const [category, setCategory] = useState("");
   const [question, setQuestion] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -15,12 +15,14 @@ function MyForm() {
   const [answerC, setAnswerC] = useState("");
   const [answerD, setAnswerD] = useState("");
   const [correct, setCorrect] = useState("");
+  const [user, setUser] = useState("");
   // const [success, setSuccess] = useState(''); // use for inline display
 
+  
   async function handleSubmit(e) {
     e.preventDefault();
     if (!user) {
-      alert("You must be signed in to add a flashcard.");
+      alert("Please sign in to add a flashcard.");
       return;
     }
     // Insert question

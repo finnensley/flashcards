@@ -10,6 +10,7 @@
 # A page to create flashcards using categorizes, with those cards always displayed, with the option to hide or 5-10 created flashcards plus api 10 populate when click button? 
 
 ## Challenges:
+## Currently, sign in to view page and gives access to create custom cards. Can adjust to add a user.id to each card and at sign in only see custom cards made by that user plus other apis. 
 
 ## React app only runs if npm run dev and go server is running for JS/Custom tables, go run main.go. If hosted on vercel and db to Supabase, does that fix running it locally. Can Vercel be used as a server? 
 

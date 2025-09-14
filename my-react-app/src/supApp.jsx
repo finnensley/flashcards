@@ -1,7 +1,6 @@
 import "./App.css";
 import MyForm from "./supMyForm.jsx";
 import FlashcardLoader from "./supFlashcardLoader.jsx";
-import { motion } from "framer-motion";
 import "./MyForm.css";
 import { useEffect, useState } from "react";
 import { supabase } from "./supabaseClient";
@@ -22,10 +21,7 @@ function App() {
 
   return (
     <div>
-      {user ? (
-        <>
           <button onClick={() => supabase.auth.signOut()}>Sign Out</button>
-          {/* Your app content here */}
           <div className="container">
             <header className="header">
               <h1>DevFlashCards</h1>
@@ -37,15 +33,14 @@ function App() {
             <div className="create-flashcard">
               <h2>Create A Flashcard</h2>
               <div>
-                <MyForm />
+                {user ? (
+                <MyForm user={user} />
+              ) : (
+                <SignIn />
+              )}
               </div>
             </div>
           </div>
-          ); }
-        </>
-      ) : (
-        <SignIn />
-      )}
     </div>
   );
 }
